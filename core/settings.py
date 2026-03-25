@@ -1,12 +1,7 @@
 import environ
-import locale
 import os
 from django.conf.locale.pt_BR import formats as pt_BR_formats
 from pathlib import Path
-
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-pt_BR_formats.DATE_FORMAT = "d/m/Y"
-pt_BR_formats.CURRENCY_SYMBOL = "R$"
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, False))
@@ -82,6 +77,11 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'America/Sao_Paulo'
+
+USE_L10N = True
+
+DATE_FORMAT = 'd/m/Y'
+DATETIME_FORMAT = 'd/m/Y H:i'
 
 USE_I18N = True
 
