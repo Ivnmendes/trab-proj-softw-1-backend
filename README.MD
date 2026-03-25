@@ -26,22 +26,17 @@ Sempre execute este comando antes de rodar qualquer script do Django:
 poetry shell
 ```
 
-## 3. Banco de Dados (PostgreSQL)
+## 3. Variáveis de ambiente
 
-1. Crie um banco de dados local chamado `farmacia_db`.
-2. Configure as variáveis de ambiente no arquivo `/core/settings.py`:
+1. Crie um arquivo `.env` com base em `.env.example`.
+2. Configure as variáveis de ambiente no arquivo:
 
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'farmacia_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+```env
+SECRET_KEY=# chave aleatória, pode ser gerada com: "python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'"
+DEBUG=# Use "True" quando em dev e "False" na produção
+ALLOWED_HOSTS=# "localhost,127.0.0.1" quando local ou o ip do render
+# Seu usuario e senha postgres
+DATABASE_URL=postgres://<user>:<senha>@localhost:5432/farmacia_db
 ```
 
 ### Rodar Migrations
