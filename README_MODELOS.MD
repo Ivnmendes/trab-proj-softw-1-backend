@@ -80,6 +80,6 @@ Módulo do programa responsável por gerenciar dados que o front vai utilizar pa
     - Specialized: Farmácia Estadual
     - Popular: Farmácia Popular
   - `address`: string
-  - `landmark`: m2m com Ponto de Referência
+  - `landmark`: fk com Ponto de Referência
   - `created_at`: datetime
   - `updated_at`: datetime
