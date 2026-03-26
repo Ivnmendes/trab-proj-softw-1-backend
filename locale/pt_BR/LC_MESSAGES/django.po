@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-26 16:00-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "No results found"
+msgstr "Nenhum resultado encontrado"
+
+msgid "This page yielded into no results. Create a new item or reset your filters."
+msgstr "Nenhum resultado foi encontrado nesta página. Crie um novo item ou limpe seus filtros."
+
+msgid "Type to search"
+msgstr "Digite para pesquisar"
+
+msgid "Search apps and models..."
+msgstr "Pesquisar apps e modelos"
+
+msgid "Light"
+msgstr "Claro"
+
+msgid "Dark"
+msgstr "Escuro"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "Reset filters"
+msgstr "Resetar filtros"
+
+msgid "Select value"
+msgstr "Selecionar valor"
+
+msgid "Choose file to upload"
+msgstr "Escolha um arquivo para realizar upload"
+
+msgid "Filters"
+msgstr "Filtros"

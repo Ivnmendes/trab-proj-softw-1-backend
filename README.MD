@@ -4,9 +4,10 @@
 
 Certifique-se de ter instalado em sua máquina:
 
-- **Python 3.10+**
+- **Python 3.11+**
 - **Poetry** (Gerenciador de dependências)
 - **PostgreSQL 18+**
+- **gettext**
 
 ## 2. Configuração do Ambiente
 
@@ -47,7 +48,15 @@ Prepare a estrutura das tabelas (Medicamentos, CIDs, Documentos, etc):
 python manage.py migrate
 ```
 
-## 4. Executando o Servidor
+## 4. Compilar os arquivos de tradução
+
+Rode o seguinte comando para compilar os arquivos de tradução (necessário para traduzir termos do inglês padrões do template):
+
+```bash
+python manage.py compilemessages
+```
+
+## 5. Executando o Servidor
 
 Para iniciar o serviço de desenvolvimento:
 
@@ -57,7 +66,7 @@ python manage.py runserver
 
 O projeto estará disponível em `http://127.0.0.1:8000`.
 
-## 5. Comandos Úteis do Poetry
+## 6. Comandos Úteis do Poetry
 
 - **Adicionar nova biblioteca:** `poetry add <pacote>`
 - **Adicionar dependência de dev:** `poetry add <pacote> --group dev`
