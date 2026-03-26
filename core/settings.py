@@ -25,6 +25,9 @@ MY_APPS = [
 ]
 
 INSTALLED_APPS = [
+    'unfold',
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,6 +100,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if not DEBUG:
@@ -115,3 +124,69 @@ if not DEBUG:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 else:
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+from django.urls import reverse_lazy
+
+UNFOLD = {
+    "SITE_TITLE": "Gestão de Farmácias e Medicamentos",
+    "SITE_HEADER": "Painel Administrativo",
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": "Gestão de Saúde",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Medicamentos",
+                        "icon": "medication", 
+                        "link": reverse_lazy("admin:medications_medication_changelist"),
+                    },
+                    {
+                        "title": "CIDs",
+                        "icon": "monitor_heart", 
+                        "link": reverse_lazy("admin:medications_cid_changelist"),
+                    },
+                    {
+                        "title": "Documentos",
+                        "icon": "description", 
+                        "link": reverse_lazy("admin:medications_document_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": "Mapas e Localizações",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Farmácias",
+                        "icon": "local_pharmacy", 
+                        "link": reverse_lazy("admin:map_pharmacy_changelist"),
+                    },
+                    {
+                        "title": "Pontos de Referência",
+                        "icon": "location_on", 
+                        "link": reverse_lazy("admin:map_landmark_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": "Administração",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Usuários",
+                        "icon": "group", 
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": "Permissões",
+                        "icon": "shield", 
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}

@@ -6,7 +6,7 @@ authors = ["Ivan Mendes <ivanmendes2005@gmail.com>"]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 Django = "5.2"
 djangorestframework = "^3.17.1"
 psycopg2-binary = "^2.9.11"
@@ -16,6 +16,7 @@ gunicorn = "^25.2.0"
 whitenoise = "^6.12.0"
 django-storages = {extras = ["s3"], version = "^1.14.6"}
 boto3 = "^1.42.76"
+django-unfold = "^0.87.0"
 
 [tool.poetry.dev-dependencies]
 

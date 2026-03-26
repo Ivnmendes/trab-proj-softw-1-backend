@@ -1,8 +1,10 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
+
 from .models import Medication, CID, Document
 
 @admin.register(Medication)
-class MedicationAdmin(admin.ModelAdmin):
+class MedicationAdmin(ModelAdmin):
     list_display = ('generic_name', 'name', 'concentration', 'created_at')
     list_filter = ('pharmacies', 'created_at')
     search_fields = ('name', 'generic_name', 'components')
@@ -10,13 +12,13 @@ class MedicationAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
 
 @admin.register(CID)
-class CIDAdmin(admin.ModelAdmin):
+class CIDAdmin(ModelAdmin):
     list_display = ('code', 'name', 'created_at')
     search_fields = ('code', 'name')
     filter_horizontal = ('documents',)
     readonly_fields = ('created_at', 'updated_at')
 
 @admin.register(Document)
-class DocumentAdmin(admin.ModelAdmin):
+class DocumentAdmin(ModelAdmin):
     list_display = ('name', 'created_at')
     readonly_fields = ('created_at', 'updated_at')
