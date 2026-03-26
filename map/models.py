@@ -5,6 +5,11 @@ from core.models import BaseModel
 
 class Landmark(BaseModel):
 
+    class Meta:
+        verbose_name = "Ponto de Referência"
+        verbose_name_plural = "Pontos de Referência"
+        ordering = "name", '-created_at'
+
     name = models.CharField(
         max_length=100, 
         verbose_name="Nome"
@@ -37,6 +42,11 @@ class Landmark(BaseModel):
 
 
 class Pharmacy(BaseModel):
+
+    class Meta:
+        verbose_name = "Farmácia"
+        verbose_name_plural = "Farmácias"
+        ordering = "name", '-created_at'
 
     class PharmacyType(models.TextChoices):
         BASIC = "BASIC", "Farmácia Municipal"

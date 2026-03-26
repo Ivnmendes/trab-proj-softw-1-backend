@@ -5,6 +5,11 @@ from map.models import Pharmacy
 
 class Medication(BaseModel):
 
+    class Meta:
+        verbose_name = "Medicação"
+        verbose_name_plural = "Medicações"
+        ordering = "generic_name", '-created_at'
+
     generic_name = models.CharField(
         max_length=255,
         verbose_name="Nome genérico"
@@ -49,6 +54,11 @@ class Medication(BaseModel):
 
 class CID(BaseModel):
 
+    class Meta:
+        verbose_name = "CID"
+        verbose_name_plural = "CID's"
+        ordering = "name", '-created_at'
+
     name = models.CharField(
         max_length=255,
         null=True,
@@ -72,6 +82,11 @@ class CID(BaseModel):
         return f"{self.code} - {self.name}"
 
 class Document(BaseModel):
+
+    class Meta:
+        verbose_name = "Documento"
+        verbose_name_plural = "Documentos"
+        ordering = "name", '-created_at'
 
     class DocumentType(models.TextChoices):
         IDENTIFICATION = "IDENTIFICATION", "Documentos de identidade"
