@@ -8,13 +8,13 @@
 
 ## **Módulos**
 
-## **Medicamentos**
+## **Medications**
 
 Principal módulo do programa, onde serão cadastrados os medicamentos, cids e documentos.
 
 ### **Modelos**
 
-- ### **Medicamento**
+- ### **Medication**
 
   #### **Atributos**
 
@@ -41,7 +41,7 @@ Principal módulo do programa, onde serão cadastrados os medicamentos, cids e d
   - `created_at`: datetime
   - `updated_at`: datetime
 
-- ### **Documento**
+- ### **Document**
 
   #### **Atributos**
 
@@ -51,13 +51,13 @@ Principal módulo do programa, onde serão cadastrados os medicamentos, cids e d
   - `created_at`: datetime
   - `updated_at`: datetime
 
-## **Mapa**
+## **Map**
 
 Módulo do programa responsável por gerenciar dados que o front vai utilizar para exibir os mapas.
 
 ### **Modelos**
 
-- ### **Ponto de Referência**
+- ### **Land Mark**
 
   #### **Atributos**
 
@@ -69,7 +69,7 @@ Módulo do programa responsável por gerenciar dados que o front vai utilizar pa
   - `created_at`: datetime
   - `updated_at`: datetime
 
-- ### **Farmácia**
+- ### **Pharmacy**
 
   #### **Atributos**
 
@@ -80,7 +80,6 @@ Módulo do programa responsável por gerenciar dados que o front vai utilizar pa
     - Specialized: Farmácia Estadual
     - Popular: Farmácia Popular
   - `address`: string
-  - `reference_points`: m2m com Ponto de Referência
-  - `image`: image
+  - `landmark`: m2m com Ponto de Referência
   - `created_at`: datetime
   - `updated_at`: datetime
