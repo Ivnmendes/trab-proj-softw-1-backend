@@ -22,6 +22,8 @@ class Medication(BaseModel):
     )
     description = models.CharField(
         max_length=500,
+        null=True,
+        blank=True,
         verbose_name="Descrição"
     )
     concentration = models.CharField(
