@@ -1,4 +1,4 @@
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.db import models
 
 from core.models import BaseModel
@@ -71,11 +71,28 @@ class Pharmacy(BaseModel):
         max_length=200,
         verbose_name="Endereço"
     )
-    landmark = models.ForeignKey(
-        Landmark,
-        on_delete=models.CASCADE,
-        verbose_name="Localização no Mapa"
+    latitude = models.DecimalField(
+        max_digits=12, 
+        decimal_places=9, 
+        validators=[MinValueValidator(-90), MaxValueValidator(90)],
+        verbose_name="Latitude"
     )
+    longitude = models.DecimalField(
+        max_digits=12, 
+        decimal_places=9, 
+        validators=[MinValueValidator(-180), MaxValueValidator(180)],
+        verbose_name="Longitude"
+    )
+    phone_regex = RegexValidator(
+        regex=r'^\(\d{2}\) \d{4,5}-\d{4}$',
+        message="O telefone deve estar no formato: (99) 99999-9999"
+    )
+    phone = models.CharField(validators=[phone_regex], max_length=15, blank=True)
+    # landmark = models.ForeignKey(
+    #     Landmark,
+    #     on_delete=models.CASCADE,
+    #     verbose_name="Localização no Mapa"
+    # )
 
     def __str__(self):
         return f"Farmácia: {self.name}"
