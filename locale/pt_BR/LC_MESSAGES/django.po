@@ -43,3 +43,21 @@ msgstr "Escolha um arquivo para realizar upload"
 
 msgid "Filters"
 msgstr "Filtros"
+
+msgid "Welcome back to"
+msgstr "Bem-vindo de volta ao"
+
+msgid "Return to site"
+msgstr "Retornar ao site"
+
+msgid "Choose %(x)s by selecting them and then select the \"Choose\" arrow button."
+msgstr "Escolha %(x)s selecionando-os e depois clique no botão de seta \"Escolher\"."
+
+msgid "Remove %(x)s by selecting them and then select the \"Remove\" arrow button."
+msgstr "Remova %(x)s selecionando-os e depois clique no botão de seta \"Remover\"."
+
+msgid "(click to clear)"
+msgstr "(clique para limpar)"
+
+msgid "Choose all %{x}s"
+msgstr "Escolha todos os %{x}s"
