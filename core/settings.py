@@ -142,6 +142,7 @@ UNFOLD = {
             {
                 "title": "Gestão de Saúde",
                 "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": "Medicamentos",
@@ -163,6 +164,7 @@ UNFOLD = {
             {
                 "title": "Mapas e Localizações",
                 "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": "Farmácias",
@@ -179,6 +181,7 @@ UNFOLD = {
             {
                 "title": "Administração",
                 "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": "Usuários",
@@ -189,6 +192,11 @@ UNFOLD = {
                         "title": "Permissões",
                         "icon": "shield", 
                         "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                    {
+                        "title": "Importar Medicamentos",
+                        "icon": "medication",
+                        "link": reverse_lazy("import_medications")
                     },
                 ],
             },

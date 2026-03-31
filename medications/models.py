@@ -28,11 +28,9 @@ class Medication(BaseModel):
     )
     concentration = models.CharField(
         max_length=255,
-        verbose_name="Concentração"
-    )
-    components = models.CharField(
-        max_length=255,
-        verbose_name="Componentes"
+        null=True,
+        blank=True,
+        verbose_name="Concentração",
     )
     cids = models.ManyToManyField(
         "CID",
@@ -46,6 +44,7 @@ class Medication(BaseModel):
     )
     pharmacies = models.ManyToManyField(
         Pharmacy,
+        blank=True,
         verbose_name="Farmácias"
     )
 
