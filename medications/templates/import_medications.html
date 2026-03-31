@@ -1,0 +1,51 @@
+{% extends "unfold/layouts/base.html" %}
+
+{% block content %}
+<div class="flex flex-col gap-6">
+    
+    <div>
+        <h1 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+            Importar Medicamentos
+        </h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Faça o upload do arquivo CSV contendo os dados dos medicamentos.
+        </p>
+    </div>
+
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            
+          {% if form.non_field_errors %}
+              <div class="mb-6 p-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 border border-red-200 dark:border-red-800">
+                  {% for error in form.non_field_errors %}
+                      <p>{{ error }}</p>
+                  {% endfor %}
+              </div>
+          {% endif %}
+
+          <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {{ form.file.label }}
+                </label>
+                
+                {{ form.file }}
+                
+                {% if form.file.errors %}
+                    <p class="text-red-500 text-sm mt-2">{{ form.file.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div class="mt-6 flex justify-end">
+                <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition-colors text-sm">
+                    Processar Arquivo
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
