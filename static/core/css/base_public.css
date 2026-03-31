@@ -1,0 +1,120 @@
+:root {
+  --bg: #f7f8fb;
+  --text: #111827;
+  --muted: #4b5563;
+  --primary: #9810fa;
+  --primary-hover: rgb(113, 7, 189);
+  --border: #d1d5db;
+  --secondary-hover: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101828;
+    --text: #f9fafb;
+    --muted: #cbd5e1;
+    --primary: #9810fa;
+    --primary-hover: rgb(113, 7, 189);
+    --border: #334155;
+    --secondary-hover: #1e293b;
+  }
+}
+
+html[data-theme="light"] {
+  --bg: #f7f8fb;
+  --text: #111827;
+  --muted: #4b5563;
+  --primary: #9810fa;
+  --primary-hover: rgb(113, 7, 189);
+  --border: #d1d5db;
+  --secondary-hover: #f3f4f6;
+}
+
+html[data-theme="dark"] {
+  --bg: #101828;
+  --text: #f9fafb;
+  --muted: #cbd5e1;
+  --primary: #9810fa;
+  --primary-hover: rgb(113, 7, 189);
+  --border: #334155;
+  --secondary-hover: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 72rem;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16rem;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  border-color: var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-hover);
+}

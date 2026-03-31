@@ -61,3 +61,6 @@ msgstr "(clique para limpar)"
 
 msgid "Choose all %{x}s"
 msgstr "Escolha todos os %{x}s"
+
+msgid "You have been successfully logged out from the administration"
+msgstr "Deslogado com sucesso"

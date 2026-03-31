@@ -1,0 +1,49 @@
+{% extends "base_public.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'core/css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="theme-dropdown-wrap">
+    <div class="relative">
+      <a class="theme-trigger" id="theme-trigger">
+        <span class="material-symbols-outlined theme-icon-trigger" id="theme-trigger-icon">computer</span>
+      </a>
+      <nav class="theme-menu" id="theme-menu">
+        <a class="theme-option" data-theme-option="light">
+          <span class="material-symbols-outlined theme-icon-option">light_mode</span>
+          <span>Claro</span>
+        </a>
+        <a class="theme-option" data-theme-option="dark">
+          <span class="material-symbols-outlined theme-icon-option">dark_mode</span>
+          <span>Escuro</span>
+        </a>
+        <a class="theme-option" data-theme-option="auto">
+          <span class="material-symbols-outlined theme-icon-option">computer</span>
+          <span>Sistema</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="container">
+    <h1 class="title">Gestão de Farmácias e Medicamentos</h1>
+    <p class="subtitle">Escolha para onde deseja navegar.</p>
+
+    <div class="actions">
+      <a href="{% url 'admin:index' %}" class="btn btn-primary">
+        Acessar Painel Admin
+      </a>
+      <a href="/api/docs" class="btn btn-secondary">
+        Documentação da API
+      </a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'core/js/home-theme-menu.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,76 @@
+.theme-dropdown-wrap {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.theme-trigger {
+  cursor: pointer;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-trigger:hover {
+  background: var(--secondary-hover);
+}
+
+.theme-menu {
+  position: absolute;
+  right: 0;
+  top: 2.4rem;
+  width: 9.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: var(--bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  padding: 0.25rem;
+  text-align: left;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.theme-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.theme-option {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.45rem;
+  color: var(--text);
+  font-size: 0.86rem;
+  line-height: 1.1;
+}
+
+.theme-option:hover {
+  background: var(--secondary-hover);
+}
+
+.theme-option.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.theme-icon-trigger {
+  font-size: 18px;
+}
+
+.theme-icon-option {
+  font-size: 17px;
+}
