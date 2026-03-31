@@ -30,10 +30,6 @@ class Medication(BaseModel):
         max_length=255,
         verbose_name="Concentração"
     )
-    components = models.CharField(
-        max_length=255,
-        verbose_name="Componentes"
-    )
     cids = models.ManyToManyField(
         "CID",
         blank=True,
