@@ -20,8 +20,6 @@ class LandmarkSerializer(serializers.ModelSerializer):
 
 
 class PharmacySerializer(serializers.ModelSerializer):
-    landmark = LandmarkSerializer(read_only=True)
-
     class Meta:
         model = Pharmacy
         fields = [
@@ -30,7 +28,9 @@ class PharmacySerializer(serializers.ModelSerializer):
             "description",
             "type",
             "address",
-            "landmark",
+            "latitude",
+            "longitude",
+            "phone",
             "created_at",
             "updated_at",
         ]
