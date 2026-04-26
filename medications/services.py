@@ -1,9 +1,8 @@
 import csv
 import io
-
 from django.db import transaction
 
-from medications.models import Medication
+from medications.models import Medication, CID, Document
 from map.models import Pharmacy
 
 def import_medications_service(file):
@@ -11,8 +10,8 @@ def import_medications_service(file):
         file.seek(0)
         file_data = io.TextIOWrapper(file, encoding='utf-8-sig')
         
-        primeira_linha = file_data.readline()
-        if not primeira_linha.startswith("Medicamentos e Fórmulas"):
+        first_line = file_data.readline()
+        if not first_line.startswith("Medicamentos e Fórmulas"):
             file_data.seek(0)
         
         reader = csv.DictReader(file_data, delimiter=';')
@@ -23,26 +22,30 @@ def import_medications_service(file):
         medications_dict = {}
 
         for row in reader:
-            nome_med = row['Nome'].strip().capitalize()
-            concentracao = row['Concentração'].strip()
+            med_name = row['Nome'].strip().capitalize()
+            concentration = row['Concentração'].strip()
+            components = set(row["Componente"].replace(" e ", " ").split())
             
-            chave = (nome_med, concentracao)
+            key = (med_name, concentration)
 
-            if chave not in medications_dict:
-                medications_dict[chave] = {
-                    'med': Medication(generic_name=nome_med, concentration=concentracao),
+            if key not in medications_dict:
+                medications_dict[key] = {
+                    'med': Medication(
+                        generic_name=med_name, 
+                        concentration=concentration,
+                        type=Medication.MedicationType.SPECIALIZED if "Especializado" in components else Medication.MedicationType.BASIC
+                    ),
                     'pharmacies': set()
                 }
 
             names = [item.strip().lower() for item in row['Postos de Distribuição'].split('•') if item.strip()]
-            components = set(row["Componente"].replace(" e ", " ").split())
             
             found_ids = [pharmacys_map[n] for n in names if n in pharmacys_map]
             
             if "Especializado" in components and specialized_id:
                 found_ids.append(specialized_id)
             
-            medications_dict[chave]['pharmacies'].update(found_ids)
+            medications_dict[key]['pharmacies'].update(found_ids)
 
         with transaction.atomic():
             meds_to_create = [data['med'] for data in medications_dict.values()]

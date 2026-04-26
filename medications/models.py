@@ -10,6 +10,11 @@ class Medication(BaseModel):
         verbose_name_plural = "Medicações"
         ordering = "generic_name", '-created_at'
 
+    class MedicationType(models.TextChoices):
+        BASIC = "BASIC", "Básico"
+        SPECIALIZED = "SPECIALIZED", "Especializado"
+        POPULAR = "POPULAR", "Popular"
+
     generic_name = models.CharField(
         max_length=255,
         verbose_name="Nome genérico"
@@ -25,6 +30,12 @@ class Medication(BaseModel):
         null=True,
         blank=True,
         verbose_name="Descrição"
+    )
+    type = models.CharField(
+        max_length=20,
+        choices=MedicationType.choices,
+        default=MedicationType.BASIC,
+        verbose_name="Tipo",
     )
     concentration = models.CharField(
         max_length=255,
